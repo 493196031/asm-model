@@ -617,5 +617,9 @@ public class User extends CDUModel<String> implements Operaterable {
     public void setShortNameSpell(String shortNameSpell) {
         this.shortNameSpell = shortNameSpell;
     }
-
+    
+    /*-----------------------------------------------------------
+     * domain business
+     */
+    
 }

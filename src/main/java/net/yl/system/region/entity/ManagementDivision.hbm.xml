@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-1-6 19:45:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="net.yl.system.region.entity">
+    <class name="ManagementDivision" table="WIWJ_MANAGEMENT_DIVISION" abstract="true">
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
+            <generator class="uuid" />
+        </id>
+        <discriminator type="integer" column="M_TYPE"/>
+        
+        <many-to-one name="parent" class="ManagementDivision" fetch="join">
+            <column name="PARENT" />
+        </many-to-one>
+        <set name="children" table="WIWJ_MANAGEMENT_DIVISION" inverse="false" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <one-to-many class="ManagementDivision"  />
+        </set>
+        
+        <property name="code" type="java.lang.String">
+            <column name="CODE" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="order" type="int">
+            <column name="ORDER" />
+        </property>
+        <property name="leaf" type="boolean">
+            <column name="LEAF" />
+        </property>
+        <property name="remoteIp" type="java.lang.String">
+            <column name="REMOTE_IP" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="REMARK" />
+        </property>
+        <property name="erpCode" type="java.lang.String">
+            <column name="ERP_CODE" />
+        </property>
+        <property name="hr" type="java.lang.String">
+            <column name="HR" />
+        </property>
+        <property name="linkId" type="java.lang.String">
+            <column name="LINKID" />
+        </property>
+        
+        
+        <subclass name="CompanyDivision" discriminator-value="1" />
+        <subclass name="Group" discriminator-value="2" />
+        <subclass name="StoreGroup" discriminator-value="3" />
+        <subclass name="Region" discriminator-value="4" />
+        <subclass name="Store" discriminator-value="5" />
+        
+    </class>
+</hibernate-mapping>

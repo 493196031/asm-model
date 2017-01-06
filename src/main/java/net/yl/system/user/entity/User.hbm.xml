@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-1-6 19:22:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.yl.system.user.entity.User" table="WIWJ_SYSTEM_USER" >
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
+            <generator class="uuid" />
+        </id>
+        
+        <many-to-one name="department" class="net.yl.system.dept.entity.Department" fetch="join">
+            <column name="DEPARTMENT_ID" />
+        </many-to-one>
+        <many-to-one name="projection" class="net.yl.system.info.entity.Projection" fetch="join">
+            <column name="PROJECTION_ID" />
+        </many-to-one>
+        <many-to-one name="region" class="net.yl.system.region.entity.Region" fetch="join">
+            <column name="REGION_ID" />
+        </many-to-one>
+        <many-to-one name="storeGroup" class="net.yl.system.region.entity.StoreGroup" fetch="join">
+            <column name="STORE_GROUP_ID" />
+        </many-to-one>
+        <many-to-one name="group" class="net.yl.system.region.entity.Group" fetch="join">
+            <column name="GROUP_ID" />
+        </many-to-one>
+        <many-to-one name="store" class="net.yl.system.region.entity.Store" fetch="join">
+            <column name="STORE_ID" />
+        </many-to-one>
+        <many-to-one name="certificate" class="net.yl.system.info.entity.Certificate" fetch="join">
+            <column name="CERTIFICATE_ID" />
+        </many-to-one>
+        
+       	<property name="userid" type="java.lang.String">
+       		<column name="USER_ID"></column>
+       	</property>
+        <property name="storeCode" type="java.lang.String">
+            <column name="STORE_CODE" />
+        </property>
+        <property name="CPTRoomID" type="java.lang.String">
+            <column name="CPTROOMID" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="familyAddress" type="java.lang.String">
+            <column name="FAMILY_ADDRESS" />
+        </property>
+        <property name="fax" type="java.lang.String">
+            <column name="FAX" />
+        </property>
+        <property name="mobile" type="java.lang.String">
+            <column name="MOBILE" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="PHONE" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="REMARK" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" />
+        </property>
+        <property name="degree" type="java.lang.String">
+            <column name="DEGREE" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USER_NAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="createrRemoteIp" type="java.lang.String">
+            <column name="CREATER_REMOTE_IP" />
+        </property>
+        <property name="postCode" type="java.lang.String">
+            <column name="POST_CODE" />
+        </property>
+        <property name="enable" type="boolean">
+            <column name="ENABLE" />
+        </property>
+        <property name="expired" type="boolean">
+            <column name="EXPIRED" />
+        </property>
+        <property name="locked" type="boolean">
+            <column name="LOCKED" />
+        </property>
+        <property name="full" type="boolean">
+            <column name="FULL" />
+        </property>
+        <property name="atRested" type="boolean">
+            <column name="ATRESTED" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <property name="sync" type="boolean">
+            <column name="SYNC" />
+        </property>
+        <property name="failCount" type="java.lang.Integer">
+            <column name="FAIL_COUNT" />
+        </property>
+        <property name="isPartner" type="boolean" access="field">
+            <column name="IS_PARTNER" />
+        </property>
+        <property name="isManage" type="java.lang.String">
+            <column name="IS_MANAGE" />
+        </property>
+        <property name="qq" type="java.lang.String">
+            <column name="QQ" />
+        </property>
+        <property name="levelNum" type="java.lang.String">
+            <column name="LEVEL_NUM" />
+        </property>
+        <property name="headImageUrl" type="java.lang.String">
+            <column name="HEAD_IMAGE_URL" />
+        </property>
+        <property name="acceptStatus" type="java.lang.String">
+            <column name="ACCEPT_STATUS" />
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="AGE" />
+        </property>
+        <property name="workingLife" type="java.lang.Integer">
+            <column name="WORKING_LIFE" />
+        </property>
+        <property name="entryTime" type="java.util.Date">
+            <column name="ENTRY_TIME" />
+        </property>
+        <property name="star">
+            <column name="STAR" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="type">12</param>
+                <param name="enumClass">net.yl.system.user.enums.Star</param>
+            </type>
+        </property>
+        <property name="deviceId" type="java.lang.String">
+            <column name="DEVICE_ID" />
+        </property>
+        <property name="lastEditePwdTime" type="java.util.Date">
+            <column name="LAST_EDITE_PWD_TIME" />
+        </property>
+        <property name="authenStartTime" type="java.util.Date">
+            <column name="AUTHEN_START_TIME" />
+        </property>
+        <property name="authenEndTime" type="java.util.Date">
+            <column name="AUTHEN_END_TIME" />
+        </property>
+        <property name="authenCount" type="java.lang.Integer">
+            <column name="AUTHEN_COUNT" />
+        </property>
+        <property name="authenDays" type="java.lang.Integer">
+            <column name="AUTHEN_DAYS" />
+        </property>
+        <property name="shortNameSpell" type="java.lang.String">
+            <column name="SHORT_NAME_SPELL" />
+        </property>
+        <property name="deleted">
+        	<column name="DELETED" />
+        </property>
+    </class>
+</hibernate-mapping>
