@@ -6,6 +6,6 @@ package net.yl.system.region.entity;
  * @date 2017Äê1ÔÂ3ÈÕ
  */
 public 
-class Store extends ManagementPart{
+class Store extends ManagementDivision{
 
 }
